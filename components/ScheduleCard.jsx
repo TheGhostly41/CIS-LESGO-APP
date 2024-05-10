@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text } from "react-native";
 
 const ScheduleCard = ({ scheduleId, DepTime, arrivalTime, Busline, route }) => {
   return (
@@ -23,19 +23,19 @@ const ScheduleCard = ({ scheduleId, DepTime, arrivalTime, Busline, route }) => {
               style={{ fontWeight: "600", fontSize: 16, color: "white" }}
               numberOfLines={1}
             >
-              {Busline}
+              {`BusLine: ${Busline}`}
             </Text>
             <Text style={{ fontWeight: "400", fontSize: 14, color: "white" }}>
-              {route}
+              {`Route: ${route}`}
             </Text>
             <Text style={{ fontWeight: "400", fontSize: 14, color: "white" }}>
-              {DepTime}
+              {`Departure Time: ${DepTime}`}
             </Text>
             <Text style={{ fontWeight: "400", fontSize: 14, color: "white" }}>
-              {arrivalTime}
+              {`Arrival Time: ${arrivalTime}`}
             </Text>
             <Text style={{ fontWeight: "400", fontSize: 14, color: "white" }}>
-              {scheduleId}
+              {`Schedule ID: ${scheduleId}`}
             </Text>
           </View>
         </View>

@@ -1,42 +1,37 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import { FlatList, Image, Text, View } from "react-native";
 
 import { images } from "../../constants";
 import useAppwrite from "../../lib/useAppwrite";
-import { getAllPosts, getLatestPosts } from "../../lib/appwrite";
-import { EmptyState, SearchInput, Trending, VideoCard } from "../../components";
+import { getAllSchedules } from "../../lib/appwrite";
+import { EmptyState, SearchInput, ScheduleCard } from "../../components";
 
 const Home = () => {
-  const { data: posts, refetch } = useAppwrite(getAllPosts);
-  const { data: latestPosts } = useAppwrite(getLatestPosts);
+  const [schedules, setSchedules] = useState([]);
 
-  const [refreshing, setRefreshing] = useState(false);
+  useEffect(() => {
+    const fetchSchedules = async () => {
+      const fetchedSchedules = await getAllSchedules();
+      setSchedules(fetchedSchedules);
+    };
 
-  const onRefresh = async () => {
-    setRefreshing(true);
-    await refetch();
-    setRefreshing(false);
-  };
-
-  // one flatlist
-  // with list header
-  // and horizontal flatlist
-
-  //  we cannot do that with just scrollview as there's both horizontal and vertical scroll (two flat lists, within trending)
+    fetchSchedules();
+  }, []);
 
   return (
     <SafeAreaView className="bg-primary">
       <FlatList
-        data={posts}
+        data={schedules}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
-          <VideoCard
-            title={item.title}
-            thumbnail={item.thumbnail}
-            video={item.video}
-            creator={item.creator.username}
-            avatar={item.creator.avatar}
+          <ScheduleCard
+            Busline={item.Busline}
+            route={item.route}
+            DepTime={item.DepTime}
+            arrivalTime={item.arrivalTime}
+            scheduleId={item.scheduleId}
           />
         )}
         ListHeaderComponent={() => (
@@ -44,7 +39,7 @@ const Home = () => {
             <View className="flex justify-between items-start flex-row mb-6">
               <View>
                 <Text className="font-pmedium text-sm text-gray-100">
-                  Welcome Back
+                  Welcome Back to
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
                   LESGO
@@ -66,8 +61,6 @@ const Home = () => {
               <Text className="text-lg font-pregular text-gray-100 mb-3">
                 Favorite Schedules
               </Text>
-
-              <Trending posts={latestPosts ?? []} />
             </View>
           </View>
         )}
@@ -77,9 +70,6 @@ const Home = () => {
             subtitle="No Schedules created yet"
           />
         )}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
       />
     </SafeAreaView>
   );
