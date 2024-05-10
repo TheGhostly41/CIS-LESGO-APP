@@ -47,7 +47,7 @@ const SignUp = () => {
           }}
         >
           <Image
-            source={images.LESGOlogo} // edit here
+            source={images.logo}
             resizeMode="contain"
             className="w-[115px] h-[34px]"
           />

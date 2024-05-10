@@ -48,7 +48,7 @@ const SignIn = () => {
           }}
         >
           <Image
-            source={images.NameBus} // edit here
+            source={images.fulllogo}
             resizeMode="contain"
             className="w-[115px] h-[34px]"
           />
