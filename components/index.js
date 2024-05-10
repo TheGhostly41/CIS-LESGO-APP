@@ -1,4 +1,3 @@
-import VideoCard from "./VideoCard";
 import ScheduleCard from "./ScheduleCard";
 import FormField from "./FormField";
 import CustomButton from "./CustomButton";
@@ -9,7 +8,6 @@ import SearchInput from "./SearchInput";
 import EmptyState from "./EmptyState";
 
 export {
-  VideoCard,
   ScheduleCard,
   FormField,
   CustomButton,

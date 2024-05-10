@@ -4,29 +4,34 @@ import { View, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import useAppwrite from "../../lib/useAppwrite";
-import { searchPosts } from "../../lib/appwrite";
-import { EmptyState, SearchInput, VideoCard } from "../../components";
+import { searchSchedules } from "../../lib/appwrite";
+import { EmptyState, SearchInput, ScheduleCard } from "../../components";
 
 const Search = () => {
   const { query } = useLocalSearchParams();
-  const { data: posts, refetch } = useAppwrite(() => searchPosts(query));
+  const { data: schedules, refetch } = useAppwrite(
+    () => searchSchedules(query || "") // Ensure query is a string
+  );
 
   useEffect(() => {
-    refetch();
+    if (query) {
+      // Only refetch if query is not empty
+      refetch();
+    }
   }, [query]);
 
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
-        data={posts}
+        data={schedules}
         keyExtractor={(item) => item.$id}
         renderItem={({ item }) => (
-          <VideoCard
-            title={item.title}
-            thumbnail={item.thumbnail}
-            video={item.video}
-            creator={item.creator.username}
-            avatar={item.creator.avatar}
+          <ScheduleCard
+            Busline={item.Busline}
+            route={item.route}
+            DepTime={item.DepTime}
+            arrivalTime={item.arrivalTime}
+            scheduleId={item.scheduleId}
           />
         )}
         ListHeaderComponent={() => (
@@ -47,8 +52,8 @@ const Search = () => {
         )}
         ListEmptyComponent={() => (
           <EmptyState
-            title="No Videos Found"
-            subtitle="No videos found for this search query"
+            title="No Schedules Found"
+            subtitle="No Schedules found for this search query"
           />
         )}
       />
