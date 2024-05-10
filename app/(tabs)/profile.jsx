@@ -6,7 +6,7 @@ import { icons } from "../../constants";
 import useAppwrite from "../../lib/useAppwrite";
 import { getUserPosts, signOut } from "../../lib/appwrite";
 import { useGlobalContext } from "../../context/GlobalProvider";
-import { EmptyState, InfoBox, VideoCard } from "../../components";
+import { InfoBox, VideoCard } from "../../components";
 
 const Profile = () => {
   const { user, setUser, setIsLogged } = useGlobalContext();
@@ -32,12 +32,6 @@ const Profile = () => {
             video={item.video}
             creator={item.creator.username}
             avatar={item.creator.avatar}
-          />
-        )}
-        ListEmptyComponent={() => (
-          <EmptyState
-            title="No Videos Found"
-            subtitle="No videos found for this profile"
           />
         )}
         ListHeaderComponent={() => (
@@ -69,8 +63,8 @@ const Profile = () => {
 
             <View className="mt-5 flex flex-row">
               <InfoBox
-                title={posts.length || 0}
-                subtitle="Posts"
+                title="Admin"
+                subtitle="Account Role"
                 titleStyles="text-xl"
                 containerStyles="mr-10"
               />

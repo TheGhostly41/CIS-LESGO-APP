@@ -48,13 +48,13 @@ const SignIn = () => {
           }}
         >
           <Image
-            source={images.logo}
+            source={images.NameBus} // edit here
             resizeMode="contain"
             className="w-[115px] h-[34px]"
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Log in to Aora
+            Log in to LESGO
           </Text>
 
           <FormField
