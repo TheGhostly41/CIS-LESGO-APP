@@ -8,6 +8,10 @@ const Bookmark = () => {
       <Text className="font-pmedium text-sm text-gray-100">
         Save your Schedules here
       </Text>
+
+      <Text className="text-2xl text-white text-center font-psemibold my-10">
+        Coming Soon
+      </Text>
     </SafeAreaView>
   );
 };
