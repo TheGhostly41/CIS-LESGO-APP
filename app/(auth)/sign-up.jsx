@@ -47,13 +47,13 @@ const SignUp = () => {
           }}
         >
           <Image
-            source={images.logo}
+            source={images.LESGOlogo} // edit here
             resizeMode="contain"
             className="w-[115px] h-[34px]"
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Sign Up to Aora
+            Sign Up to LESGO
           </Text>
 
           <FormField

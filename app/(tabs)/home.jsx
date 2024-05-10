@@ -47,7 +47,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  JSMastery
+                  LESGO
                 </Text>
               </View>
 
@@ -64,7 +64,7 @@ const Home = () => {
 
             <View className="w-full flex-1 pt-5 pb-8">
               <Text className="text-lg font-pregular text-gray-100 mb-3">
-                Latest Videos
+                Favorite Schedules
               </Text>
 
               <Trending posts={latestPosts ?? []} />
@@ -73,8 +73,8 @@ const Home = () => {
         )}
         ListEmptyComponent={() => (
           <EmptyState
-            title="No Videos Found"
-            subtitle="No videos created yet"
+            title="No Schedules Found"
+            subtitle="No Schedules created yet"
           />
         )}
         refreshControl={
