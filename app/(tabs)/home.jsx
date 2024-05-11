@@ -41,10 +41,7 @@ const Home = () => {
                 <Text className="font-pmedium text-sm text-gray-100">
                   Welcome Back to
                 </Text>
-                <Text
-                  className="text-2xl font-psemibold text-white"
-                  style={{ color: "#FFA001" }}
-                >
+                <Text className="text-2xl font-psemibold text-white">
                   LESGO
                 </Text>
               </View>
@@ -59,8 +56,6 @@ const Home = () => {
             </View>
 
             <SearchInput />
-
-            <View className="w-full flex-1 pt-2 pb-2"></View>
           </View>
         )}
         ListEmptyComponent={() => (
