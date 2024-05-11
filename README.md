@@ -2,13 +2,14 @@
 This repository was made for a school final project CIS 290
 
 ## Notes
-To use this project on your phone, you may need to install node modules in your local folder and expo go SDK 50 on your phone
+1. To use this project on your phone, you may need to install node modules in your local folder and expo go SDK 50 on your phone
 
-Node modules - `npm install`
-then type -> `npx expo start`
-Scan qr code on phone.
+  Node modules - `npm install`
+  then type -> `npx expo start`
+  Scan qr code on phone.
+
+2. The ID links to the cloud database in this repository are not in here because I don't want my monthly bill to bankrupt me
 
 ## Images
-![Screenshot of welcome page](/preview-images/Welcome.jpg)
-Welcome Page
+Preview Images are found in the **preview-images** folder
 
