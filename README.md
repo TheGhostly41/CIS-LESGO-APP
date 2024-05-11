@@ -8,4 +8,7 @@ Node modules - `npm install`
 then type -> `npx expo start`
 Scan qr code on phone.
 
+## Images
+![Screenshot of welcome page](/preview-images/welcome.jpg)
+Welcome Page
 
