@@ -9,6 +9,6 @@ then type -> `npx expo start`
 Scan qr code on phone.
 
 ## Images
-![Screenshot of welcome page](/preview-images/welcome.jpg)
+![Screenshot of welcome page](/preview-images/Welcome.jpg)
 Welcome Page
 
